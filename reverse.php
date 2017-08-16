@@ -30,7 +30,7 @@ if (!$host) {
 	}
 }
 ?>
-<form action="#" method="post">
+<form action="" method="post">
 <b><label for="host">IP Address:</label></b> <input type="text" name="host" id="host" value="<?=$host;?>"> <input type="submit" value="Lookup">
 </form>
 <?=$msg;?>
