@@ -3,7 +3,7 @@ $twofive = $_POST['25'];
 if (!$twofive) {
   $twofive = 0;
 }
- ?>
+?>
 
 <html>
 <head>

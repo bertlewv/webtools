@@ -4,7 +4,7 @@ if (!$domain) {
         $domain = $_GET['host'];
 }
 
-// For the full list of TLDs/Whois servers see http://www.iana.org/domains/root/db/ and http://www.whois365.com/en/listtld/
+// http://www.iana.org/domains/root/db/
 $whoisservers = array(
 	"ac" => "whois.iana.org", // Ascension Island
 	"ad" => "whois.iana.org",//ad - Andorra - no whois server assigned
