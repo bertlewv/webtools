@@ -29,24 +29,13 @@ if (!$host) {
 if (!$host) {
 	end;
 } else {
-$result = dns_get_record($host);
-$dig_class = "ANY";
-$dig_server = "8.8.8.8";
-$dig_class_array = Array('ANY',  'A',  'IN',  'MX',  'NS',  'SOA',  'HINFO',  'AXFR',  'IXFR');
-if(filter_var($dig_server, FILTER_VALIDATE_IP) !== false){
-    $command = "dig -t $dig_class $host";
-    if ($dig_server) { $command .= ' @' . $dig_server; }
-    $results = shell_exec("$command 2>&1");
-    // Save the results as a variable and send to the parse_output() function
-    $output = "Results for $dig_class: <pre>";
-    $output .= nl2br(htmlentities(trim($results)));
-    $output .= '</pre>';
-    echo($output);
-} else {
-    echo "Dig Error: <blockquote>";
-    echo 'Invalid Dig Server field.';
-    echo '</blockquote>';
-}
+	$result = dns_get_record($host);
+	$command = "host -a $host";
+	$results = shell_exec("$command 2>&1");
+	$output = "<pre>";
+	$output .= nl2br(htmlentities(trim($results)));
+	$output .= '</pre>';
+	echo $output;
 }
 ?>
 </body>

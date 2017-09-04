@@ -57,7 +57,7 @@ $whoisservers = array(
 	"cn" => "whois.cnnic.net.cn", // China
 	"co" => "whois.nic.co", // Colombia
 	"codes" => "whois.donuts.co", //Codes
-	"com" => "whois.dynadot.com",
+	"com" => "whois.verisign-grs.com",
 	"coop" => "whois.nic.coop",
 	// cr - Costa Rica - no whois server assigned
 	// cu - Cuba - no whois server assigned
