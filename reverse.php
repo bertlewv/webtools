@@ -12,7 +12,7 @@ a {
 <body>
 
 <table>
-<tr><td><a href="whois.php">Domain/IP Whois</a> || </td><td><a href="reverse.php"><b>Reverse DNS</b></a> || </td><td><a href="dns.php">DNS Record Lookup</a> || </td><td><a href="blacklist.php">IP Blacklist Search</a> || </td><td><a href="http://wvnet.work">URL Shortener(Requires Login)</a></td></tr>
+<tr><td><a href="who.php">Domain Whois</a> || </td><td><a href="ipwhois.php"><b>IP Whois</b></a> || </td><td><a href="reverse.php"><b>Reverse DNS</b></a> || </td><td><a href="dns.php">DNS Record Lookup</a> || </td><td><a href="blacklist.php">IP Blacklist Search</a> || </td><td><a href="http://wvnet.work">URL Shortener(Requires Login)</a></td></tr>
 </table>
 <?php
 $host = $_POST['host'];
