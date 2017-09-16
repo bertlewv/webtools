@@ -1,4 +1,8 @@
 <?php
+$domain = $_POST['domain'];
+if (!$domain) {
+        $domain = $_GET['domain'];
+}
 // http://www.iana.org/domains/root/db/
 function find_whois_server($ext)
 {

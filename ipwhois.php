@@ -379,24 +379,18 @@ a {
 <body>
 
 <table>
-<tr><td><a href="whois.php"><b>Domain/IP Whois</b></a> || </td><td><a href="reverse.php">Reverse DNS</a> || </td><td><a href="dns.php">DNS Record Lookup</a> || </td><td><a href="blacklist.php">IP Blacklist Search</a> || </td><td><a href="http://wvnet.work">URL Shortener(Requires Login)</a></td></tr>
+<tr><td><a href="who.php"><b>Domain Whois</b></a> || </td><td><a href="reverse.php">Reverse DNS</a> || </td><td><a href="dns.php">DNS Record Lookup</a> || </td><td><a href="blacklist.php">IP Blacklist Search</a> || </td><td><a href="http://wvnet.work">URL Shortener(Requires Login)</a></td></tr>
 </table>
 
-<form action="/whois.php" method="post">
-<b><label for="domain">Domain/IP Address:</label></b> <input type="text" name="host" id="domain" value="<?=$domain;?>"> <input type="submit" value="Lookup">
+<form action="/ipwhois.php" method="post">
+<b><label for="domain">IP Address:</label></b> <input type="text" name="host" id="domain" value="<?=$domain;?>"> <input type="submit" value="Lookup">
 </form>
 <?php
 if($domain) {
 	$domain = trim($domain);
-	if(substr(strtolower($domain), 0, 7) == "http://") $domain = substr($domain, 7);
-	if(substr(strtolower($domain), 0, 4) == "www.") $domain = substr($domain, 4);
 	if(ValidateIP($domain)) {
 		$result = LookupIP($domain);
-	}
-	elseif(ValidateDomain($domain)) {
-		$result = LookupDomain($domain);
-	}
-	else die("Invalid Input!");
+	} else { die("Invalid Input!"); }
 	echo "<pre>". $result . "</pre>";
 }
 ?>
