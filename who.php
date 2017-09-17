@@ -304,6 +304,52 @@ function get_registrar_server($string)
 	}
 	return false;
 }
+///// IP Lookup Function //////
+function LookupIP($ip) {
+	$whoisservers = array(
+		//"whois.afrinic.net", // Africa - returns timeout error :-(
+		"whois.lacnic.net", // Latin America and Caribbean - returns data for ALL locations worldwide :-)
+		"whois.apnic.net", // Asia/Pacific only
+		"whois.arin.net", // North America only
+		"whois.ripe.net" // Europe, Middle East and Central Asia only
+	);
+	$results = array();
+	foreach($whoisservers as $whoisserver) {
+		$result = QueryWhoisServer($whoisserver, $ip);
+		if($result && !in_array($result, $results)) {
+			$results[$whoisserver]= $result;
+		}
+	}
+	$res = "RESULTS FOUND: " . count($results);
+	foreach($results as $whoisserver=>$result) {
+		$res .= "\n\n-------------\nLookup results for " . $ip . " from " . $whoisserver . " server:\n\n" . $result;
+	}
+	return $res;
+}
+
+////// IP Validation Function /////
+function ValidateIP($ip) {
+	$ipnums = explode(".", $ip);
+	if(count($ipnums) != 4) {
+		return false;
+	}
+	foreach($ipnums as $ipnum) {
+		if(!is_numeric($ipnum) || ($ipnum > 255)) {
+			return false;
+		}
+	}
+	return $ip;
+}
+
+
+///// Domain Validation Function /////
+function ValidateDomain($domain) {
+	if(!preg_match("/^([-a-z0-9]{2,100})\.([a-z\.]{2,8})$/i", $domain)) {
+		return false;
+	}
+	return $domain;
+}
+
 
 /////////////////////////////////////////////////////////////////////
 function domain_whois($domainname, $port=43)
