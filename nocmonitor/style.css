@@ -1,0 +1,21 @@
+body {
+	overflow: hidden;
+	background-color: #000000;
+}
+div {
+	padding: 0px;
+	margin: 0 auto;
+}
+div .inline {
+	display: inline-block;
+	vertical-align: top;
+}
+.main {
+	width:1285px;
+	height: 720px;
+	margin: 0 auto;
+	padding: 0px;
+    overflow: hidden;
+	border: 0px solid;
+	border-color: #ffffff;
+}
