@@ -6,7 +6,7 @@
 <meta http-equiv="refresh" content="61" /> 
 <script type="text/javascript">
 var frames = Array('#', 30,
-    'http://telcomm.wvnet.edu/cardlock/', 30);
+    'https://cardlock.wvnet.edu/', 30);
 var i = 0, len = frames.length;
 function ChangeSrc()
 {
